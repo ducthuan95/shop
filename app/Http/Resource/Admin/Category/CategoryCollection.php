@@ -1,6 +1,6 @@
 <?php
 /*
- * Created Date: 13/02/2023, 11:23
+ * Created Date: 13/02/2023, 21:11
  * Author: Đức Thuấn
  * Email: thuan.td@proteanstudios.com
  * ------------------------------------------------------------------
@@ -11,21 +11,16 @@
  * ------------------------------------------------------------------
  */
 
-namespace App\Models;
+namespace App\Http\Resource\Admin\Category;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Http\Resource\Admin\BaseCollection;
 
-class Supplier extends Model
+class CategoryCollection extends BaseCollection
 {
-    use SoftDeletes;
-
-    protected $fillable = [
-      'category_id',
-      'name',
-      'email',
-      'address',
-      'avatar',
-      'status',
-    ];
+    public function toArray($request)
+    {
+        return array_merge([
+            'data' => CategoryResource::collection($this->collection)
+        ], parent::toArray($request));
+    }
 }

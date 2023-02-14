@@ -1,6 +1,6 @@
 <?php
 /*
- * Created Date: 13/02/2023, 11:23
+ * Created Date: 14/02/2023, 14:58
  * Author: Đức Thuấn
  * Email: thuan.td@proteanstudios.com
  * ------------------------------------------------------------------
@@ -11,21 +11,15 @@
  * ------------------------------------------------------------------
  */
 
-namespace App\Models;
+namespace App\Repositories\Admin;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Category;
+use App\Repositories\BaseRepository;
 
-class Supplier extends Model
+class CategoryRepository extends BaseRepository
 {
-    use SoftDeletes;
-
-    protected $fillable = [
-      'category_id',
-      'name',
-      'email',
-      'address',
-      'avatar',
-      'status',
-    ];
+    public function __construct(Category $category)
+    {
+        $this->setModel($category);
+    }
 }
