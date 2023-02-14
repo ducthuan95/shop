@@ -78,6 +78,19 @@ abstract class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
+     * @param int   $id
+     * @param array $columns
+     * @param array $withs
+     * @param array $wheres
+     *
+     * @return mixed
+     */
+    public function firstWith(array $wheres, array $columns = ['*'], array $withs = [])
+    {
+        return $this->getModel()->select($columns)->where($wheres)->with($withs)->first();
+    }
+
+    /**
      * @param array $condition
      *
      * @return mixed

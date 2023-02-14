@@ -21,4 +21,5 @@ interface BaseRepositoryInterface
     public function paginateOnlyTrash($wheres, array $paginate = [], array $columns = [], array $withs = []);
     public function firstWithTrash(int $id, array $columns = ['*'], array $withs = []);
     public function paginateOrderBy($wheres, array $paginate = [], array $columns = [], array $withs = [], string $order);
+    public function firstWith(array $wheres, array $columns = ['*'], array $withs = []);
 }
