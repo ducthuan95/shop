@@ -1,1 +1,1 @@
-SHOPPP
+SHOP
