@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
@@ -26,6 +27,7 @@ Route::prefix('v1')->group( function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::middleware('server.admins')->group(function () {
             Route::resource('supplier', SupplierController::class)->only(['index', 'store', 'show', 'update', 'destroy']);
+            Route::resource('category', CategoryController::class)->only(['index', 'store', 'show', 'update', 'destroy']);
         });
     });
 

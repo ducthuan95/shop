@@ -1,6 +1,6 @@
 <?php
 /*
- * Created Date: 13/02/2023, 11:23
+ * Created Date: 13/02/2023, 21:05
  * Author: Đức Thuấn
  * Email: thuan.td@proteanstudios.com
  * ------------------------------------------------------------------
@@ -11,21 +11,19 @@
  * ------------------------------------------------------------------
  */
 
-namespace App\Models;
+namespace App\Http\Requests\Admin\Category;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Http\Requests\Admin\AdminRequest;
 
-class Supplier extends Model
+class CategoryListRequest extends AdminRequest
 {
-    use SoftDeletes;
+    public function authorize()
+    {
+        return true;
+    }
 
-    protected $fillable = [
-      'category_id',
-      'name',
-      'email',
-      'address',
-      'avatar',
-      'status',
-    ];
+    public function rules()
+    {
+        return [];
+    }
 }
